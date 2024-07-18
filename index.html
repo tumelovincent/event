@@ -1,0 +1,253 @@
+<html>
+  <head>
+    <base href="index.html" />
+    <title>EventHoster - Your Ultimate Event Experience</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+    .header {
+        background-color: #4a90e2;
+        color: white;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-sizing: border-box;
+    }
+    .menu-icon {
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -200px;
+        width: 200px;
+        height: 50%;
+        background-color: #333;
+        transition: 0.3s;
+        z-index: 1001;
+        overflow-y: auto;
+    }
+    .sidebar.open {
+        left: 0;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+    }
+    .sidebar-header {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+    }
+    .close-btn {
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .sidebar li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 1rem;
+    }
+    .sidebar li a:hover {
+        background-color: #555;
+    }
+    .content {
+        padding: 1rem;
+        margin-top: 60px;
+    }
+    .section {
+        background-color: white;
+        border-radius: 5px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+        color: #4a90e2;
+    }
+    .event-card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .event-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+    }
+    .image-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .image-gallery img {
+        width: calc(33.333% - 10px);
+        height: 100px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .founder {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    .founder img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+    @media (max-width: 768px) {
+        .image-gallery img {
+            width: calc(50% - 5px);
+        }
+    }
+</style></head><body>
+    <div class="header">
+        <div class="menu-icon" onclick="toggleSidebar()">☰home</div>
+        <div class="logo">EventHoster</div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="close-btn" onclick="toggleSidebar()">×</span>
+        </div>
+        <ul>
+            <li><a href="#upcoming" onclick="toggleSidebar()">Upcoming Events</a></li>
+            <li><a href="#gallery" onclick="toggleSidebar()">Event Gallery</a></li>
+            <li><a href="#founders" onclick="toggleSidebar()">Our Founders</a></li>
+            <li><a href="#fun" onclick="toggleSidebar()">Fun Events</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="section" id="upcoming">
+            <h2>Upcoming Events</h2>
+            <div class="event-card">
+                <img src="images/festival_1.jpg" alt="Summer Music Festival poster" class="event-image" width="400" height="200">
+                <h3>Summer Music Festival</h3>
+                <p>Date: July 15-17, 2024</p>
+                <p>Location: Sunshine Park</p>
+                <p>Get ready for three days of non-stop music featuring top artists from around the world!</p>
+            </div>
+            <div class="event-card">
+                <img src="images/Tech Innovation Summit.jpg" alt="Tech Innovation Summit featured speaker" class="event-image" width="400" height="200">
+                <h3>Tech Innovation Summit</h3>
+                <p>Date: August 5, 2024</p>
+                <p>Location: Digital Convention Center</p>
+                <p>Join industry leaders and innovators for a day of cutting-edge technology discussions and demos.</p>
+            </div>
+        </div>
+
+        <div class="section" id="gallery">
+            <h2>Event Gallery</h2>
+            <div class="image-gallery">
+                <img src="images/event 1.jpg" alt="Crowd cheering at a concert" width="150" height="100">
+                <img src="images/event 2.jpg" alt="Keynote speaker at a conference" width="150" height="100">
+                <img src="images/event 3.jpg" alt="Food festival with various stalls" width="150" height="100">
+                <img src="images/event 5.jpg" alt="Art exhibition opening night" width="150" height="100">
+                <img src="images/event 6.jpg" alt="Sports event in a stadium" width="150" height="100">
+                <img src="images/event 2.jpg" alt="Fashion show runway" width="150" height="100">
+            </div>
+        </div>
+
+        <div class="section" id="founders">
+            <h2>Our Founders</h2>
+            <div class="founder">
+                <img src="founder1.jpg" alt="Sarah Johnson" width="50" height="50">
+                <div>
+                    <h3>Sarah Johnson</h3>
+                    <p>CEO & Visionary</p>
+                </div>
+            </div>
+            <div class="founder">
+                <img src="founder2.jpg" alt="Mike Chen" width="50" height="50">
+                <div>
+                    <h3>Mike Chen</h3>
+                    <p>COO & Logistics Expert</p>
+                </div>
+            </div>
+            <div class="founder">
+                <img src="founder3.jpg" alt="Emma Rodriguez" width="50" height="50">
+                <div>
+                    <h3>Emma Rodriguez</h3>
+                    <p>Creative Director</p>
+                </div>
+            </div>
+            <div class="founder">
+                <img src="founder4.jpg" alt="David Okoye" width="50" height="50">
+                <div>
+                    <h3>David Okoye</h3>
+                    <p>Technology Officer</p>
+                </div>
+            </div>
+            <div class="founder">
+                <img src="founder5.jpg" alt="Lily Patel" width="50" height="50">
+                <div>
+                    <h3>Lily Patel</h3>
+                    <p>Marketing Strategist</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="fun">
+            <h2>Fun Events</h2>
+            <div class="event-card">
+                <img src="images/Glow-in-the-Dark Yoga.jpg" alt="Glow-in-the-Dark Yoga session" class="event-image" width="400" height="200">
+                <h3>Glow-in-the-Dark Yoga</h3>
+                <p>Date: Every Friday night</p>
+                <p>Experience yoga like never before with our UV-lit sessions. Bring your brightest workout gear!</p>
+            </div>
+            <div class="event-card">
+                <img src="images/Bubble Soccer Tournament.jpg" alt="Bubble Soccer Tournament" class="event-image" width="400" height="200">
+                <h3>Bubble Soccer Tournament</h3>
+                <p>Date: August 20, 2024</p>
+                <p>Play soccer while encased in a giant bubble. Hilarity guaranteed!</p>
+            </div>
+            <div class="event-card">
+                <img src="images/Retro Gaming Night.jpg" alt="Retro Gaming Night" class="event-image" width="400" height="200">
+                <h3>Retro Gaming Night</h3>
+                <p>Date: September 3, 2024</p>
+                <p>Relive the golden age of gaming with classic consoles and arcade machines.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        // Close sidebar when clicking outside of it
+        document.addEventListener('click', function(event) {
+            var sidebar = document.getElementById('sidebar');
+            var menuIcon = document.querySelector('.menu-icon');
+            if (!sidebar.contains(event.target) && event.target !== menuIcon) {
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
+</body></html>
